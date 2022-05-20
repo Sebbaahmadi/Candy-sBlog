@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+    <head>
+        
+        <style>
+.p{
+	float: left;
+	width: 100px;
+	color: coral;
+	font-weight: bold;
+	font-size: 20px;
+	text-shadow: 1px 1px 1px #fff;
+	padding-top: 10px; 
+}
+
+input[type=text]{
+	border-bottom: 2px solid coral ;
+	border-top: 0px;
+	border-left: 0px ;
+	border-right: 0px;
+	width: 300px;
+	outline: none;
+	color: coral;
+}
+
+input[type=submit]{
+	background:antiquewhite;
+	border: 1px solid antiquewhite;
+	padding: 5px 15px 5px 15px;
+	color: coral;
+	box-shadow: inset -1px -1px 3px antiquewhite;
+	-moz-box-shadow: inset -1px -1px 3px antiquewhite;
+	-webkit-box-shadow: inset -1px -1px 3px antiquewhite;
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	font-weight: bold;
+}
+
+
+textarea{
+	border-bottom: 2px solid coral ;
+	border-top: 0px;
+	border-left: 0px ;
+	border-right: 0px;
+	width: 300px;
+  height: 150px;
+  outline: none;
+	color: coral;
+}
+
+.coloumn{
+	font-family: "Copperplate", "Courier New", monospace;
+	padding-top: 10px;
+}
+   
+ </style>
+    </head>
+    <body>
+     <div class="bg-light">
+		<div class="bg-light">
+			<div class="container py-5">
+			  <div class="row h-100 align-items-center py-5">
+				<div class="col-lg-6">
+                    <form id="contactForm" name="contactForm" method="post" action="{% url 'contact' %}">
+
+            {% csrf_token %} <!-- prevent hackers -->
+
+      <label><p class="display-4 p"> Name </p> 
+        <br/>
+       <input id="name" name="name" type="text"   class="input-field" placeholder="sara" ></label>
+        <br/>
+        <label ><p class="p">Email</p>
+            <br/>
+            <input id="email" name="email" type="text"   class="input-field" placeholder="example@eexample.com"></label>
+            <br/>
+            <br/>
+
+            <label > <p class="p">Message </p>
+            <br/>
+            <textarea id="message" name="message"  id="cMessage" class="text" placeholder="Message Content" ></textarea></label>
+             <br/>  <br/>
+            <input type="submit" name="submit" id='work' type="submit" name="submit">
+
+        </form> <!-- end form -->
+        </div>
+		<div class="col-lg-6 d-none d-lg-block"><img src="{% static 'pages\img\sugar-free-candies.jpg'%}" alt="" class="img-fluid"></div>
+        </div>
+		
+        </div>
+        </div>
+        </div>
+        
+    </body>
+</html>
+{% endblock %}
